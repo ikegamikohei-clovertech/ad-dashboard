@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
-import { sampleDashboardData } from "@/lib/sample-data";
+import { fetchDashboardData } from "@/lib/fetch-data";
 
-// 現在はサンプルデータを返す。将来Google Sheets連携時にキャッシュデータに差し替え。
+export const revalidate = 3600;
+
 export async function GET() {
-  return NextResponse.json(sampleDashboardData);
+  const data = await fetchDashboardData();
+  return NextResponse.json(data);
 }

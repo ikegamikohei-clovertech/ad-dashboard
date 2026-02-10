@@ -57,7 +57,7 @@ export async function fetchPlatformMaster(): Promise<PlatformMaster[]> {
     .sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
-const DEFAULT_DATA_SHEETS = "Google,Yahoo!検索,Yahoo!ディスプレイ,Meta";
+const DEFAULT_DATA_SHEETS = "Google検索,Google P-MAX,Yahoo!検索,Yahoo!ディスプレイ,Meta";
 
 function parseSheetRows(rows: string[][] | null | undefined): RawRow[] {
   if (!rows || rows.length < 2) return [];

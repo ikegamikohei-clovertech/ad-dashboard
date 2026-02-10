@@ -57,20 +57,10 @@ export async function fetchPlatformMaster(): Promise<PlatformMaster[]> {
     .sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
-export async function fetchAdRows(): Promise<RawRow[]> {
-  const auth = getAuth();
-  const sheets = google.sheets({ version: "v4", auth });
-  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID!;
-  const sheetName = process.env.GOOGLE_SHEETS_SHEET_NAME || "入稿データ";
+const DEFAULT_DATA_SHEETS = "Google,Yahoo!検索,Yahoo!ディスプレイ,Meta";
 
-  const res = await sheets.spreadsheets.values.get({
-    spreadsheetId,
-    range: `${sheetName}!A:M`,
-  });
-
-  const rows = res.data.values;
+function parseSheetRows(rows: string[][] | null | undefined): RawRow[] {
   if (!rows || rows.length < 2) return [];
-
   return rows.slice(1).map((row) => ({
     brand: row[0] || "",
     platform: row[1] || "",
@@ -86,4 +76,38 @@ export async function fetchAdRows(): Promise<RawRow[]> {
     url: row[11] || "",
     image_url: row[12] || "",
   }));
+}
+
+/**
+ * 複数シートから広告データを取得して結合する。
+ * 環境変数 GOOGLE_SHEETS_DATA_SHEETS にカンマ区切りでシート名を指定。
+ * 例: "Google,Yahoo!検索,Yahoo!ディスプレイ,Meta"
+ */
+export async function fetchAdRows(): Promise<RawRow[]> {
+  const auth = getAuth();
+  const sheets = google.sheets({ version: "v4", auth });
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID!;
+  const sheetNames = (
+    process.env.GOOGLE_SHEETS_DATA_SHEETS || DEFAULT_DATA_SHEETS
+  )
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  const results = await Promise.all(
+    sheetNames.map(async (name) => {
+      try {
+        const res = await sheets.spreadsheets.values.get({
+          spreadsheetId,
+          range: `${name}!A:M`,
+        });
+        return parseSheetRows(res.data.values);
+      } catch (error) {
+        console.error(`Failed to fetch sheet "${name}":`, error);
+        return [];
+      }
+    })
+  );
+
+  return results.flat();
 }

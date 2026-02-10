@@ -45,7 +45,7 @@ export default function LoginPage() {
             Ad
           </div>
           <div>
-            <h1 className="text-lg font-bold text-[#1A1A2E]">入稿内容ダッシュボード</h1>
+            <h1 className="text-lg font-bold text-[#1A1A2E]">mix.tokyo 広告入稿一覧ダッシュボード</h1>
             <p className="text-[11px] text-gray-400">Ad Submission Dashboard</p>
           </div>
         </div>

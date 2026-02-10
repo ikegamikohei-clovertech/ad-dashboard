@@ -15,8 +15,8 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "入稿内容ダッシュボード",
-  description: "広告入稿内容の確認ダッシュボード",
+  title: "mix.tokyo 広告入稿一覧ダッシュボード",
+  description: "mix.tokyo 広告入稿一覧ダッシュボード",
 };
 
 export default function RootLayout({

@@ -126,7 +126,7 @@ export default function Dashboard({ data }: Props) {
             Ad
           </div>
           <div>
-            <h1 className="text-base font-bold m-0 tracking-tight">入稿内容ダッシュボード</h1>
+            <h1 className="text-base font-bold m-0 tracking-tight">mix.tokyo 広告入稿一覧ダッシュボード</h1>
             <p className="text-[11px] text-gray-400 m-0">Ad Submission Dashboard</p>
           </div>
         </div>

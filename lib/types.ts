@@ -38,6 +38,7 @@ export interface Campaign {
 export interface DashboardData {
   platforms: PlatformMaster[];
   campaigns: Campaign[];
+  fetchedAt: string;
 }
 
 // 表示用の広告（フラット化）

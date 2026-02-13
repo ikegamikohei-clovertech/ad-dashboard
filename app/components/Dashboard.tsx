@@ -17,8 +17,14 @@ function getAdText(ad: { headlines: string[]; descriptions: string[] }) {
   return [...ad.headlines, ...ad.descriptions].join(" ");
 }
 
+function formatFetchedAt(iso: string) {
+  const d = new Date(iso);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}/${pad(d.getMonth() + 1)}/${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
 export default function Dashboard({ data }: Props) {
-  const { platforms, campaigns } = data;
+  const { platforms, campaigns, fetchedAt } = data;
 
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<"card" | "table">("card");
@@ -130,6 +136,10 @@ export default function Dashboard({ data }: Props) {
             <p className="text-[11px] text-gray-400 m-0">Ad Submission Dashboard</p>
           </div>
         </div>
+        <div className="flex items-center gap-4">
+          <p className="text-[11px] text-gray-400 m-0 whitespace-nowrap">
+            最終取得: {formatFetchedAt(fetchedAt)}
+          </p>
         <div className="flex bg-gray-100 rounded-lg p-0.5">
           {([{ key: "card" as const, label: "カード" }, { key: "table" as const, label: "テーブル" }]).map((v) => (
             <button
@@ -144,6 +154,7 @@ export default function Dashboard({ data }: Props) {
               {v.label}
             </button>
           ))}
+        </div>
         </div>
       </header>
 

@@ -224,4 +224,5 @@ const sampleCampaigns: Campaign[] = [
 export const sampleDashboardData: DashboardData = {
   platforms: PLATFORM_MASTER,
   campaigns: sampleCampaigns,
+  fetchedAt: new Date().toISOString(),
 };

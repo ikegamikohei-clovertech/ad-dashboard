@@ -13,7 +13,7 @@ export async function fetchDashboardData(): Promise<DashboardData> {
     !process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL ||
     !process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY
   ) {
-    return sampleDashboardData;
+    return { ...sampleDashboardData, fetchedAt: new Date().toISOString() };
   }
 
   try {
@@ -22,9 +22,9 @@ export async function fetchDashboardData(): Promise<DashboardData> {
       fetchAdRows(),
     ]);
     const campaigns = transformToCampaigns(rows);
-    return { platforms, campaigns };
+    return { platforms, campaigns, fetchedAt: new Date().toISOString() };
   } catch (error) {
     console.error("Google Sheets fetch failed, using sample data:", error);
-    return sampleDashboardData;
+    return { ...sampleDashboardData, fetchedAt: new Date().toISOString() };
   }
 }

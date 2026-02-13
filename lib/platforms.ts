@@ -5,7 +5,7 @@ export const PLATFORM_MASTER: PlatformMaster[] = [
   { id: "google_search", name: "Google 検索広告", color: "#4285F4", icon: "G検", bg: "#E8F0FE", parent: "Google", sortOrder: 1 },
   { id: "yahoo_search", name: "Yahoo! 検索広告", color: "#FF0033", icon: "YS", bg: "#FFF0F3", parent: "Yahoo!", sortOrder: 2 },
   { id: "yahoo_display", name: "Yahoo! ディスプレイ", color: "#7B0099", icon: "YD", bg: "#F5E6FF", parent: "Yahoo!", sortOrder: 3 },
-  { id: "google_pmax", name: "P-MAX", color: "#34A853", icon: "PM", bg: "#E6F4EA", parent: "Google", sortOrder: 4 },
+  { id: "google_pmax", name: "Google P-MAX", color: "#34A853", icon: "PM", bg: "#E6F4EA", parent: "Google", sortOrder: 4 },
   { id: "meta", name: "Meta 広告", color: "#0081FB", icon: "M", bg: "#E7F3FF", parent: "Meta", sortOrder: 5 },
 ];
 

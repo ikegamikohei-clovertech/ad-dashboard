@@ -2,11 +2,11 @@ import { PlatformMaster } from "./types";
 
 // サンプル媒体マスタ（将来はスプレッドシートから取得）
 export const PLATFORM_MASTER: PlatformMaster[] = [
-  { id: "google_search", name: "Google 検索広告", color: "#16A34A", icon: "G検", bg: "#DCFCE7", parent: "Google", sortOrder: 1 },
-  { id: "yahoo_search", name: "Yahoo! 検索広告", color: "#DC2626", icon: "YS", bg: "#FEE2E2", parent: "Yahoo!", sortOrder: 2 },
-  { id: "yahoo_display", name: "Yahoo! ディスプレイ", color: "#7B0099", icon: "YD", bg: "#F5E6FF", parent: "Yahoo!", sortOrder: 3 },
-  { id: "google_pmax", name: "Google P-MAX", color: "#166534", icon: "PM", bg: "#D1FAE5", parent: "Google", sortOrder: 4 },
-  { id: "meta", name: "Meta 広告", color: "#1E3A8A", icon: "M", bg: "#DBEAFE", parent: "Meta", sortOrder: 5 },
+  { id: "Google Search", name: "Google 検索広告", color: "#16A34A", icon: "G検", bg: "#DCFCE7", parent: "Google", sortOrder: 1 },
+  { id: "Yahoo! Search", name: "Yahoo! 検索広告", color: "#DC2626", icon: "YS", bg: "#FEE2E2", parent: "Yahoo!", sortOrder: 2 },
+  { id: "Yahoo! Display", name: "Yahoo! ディスプレイ", color: "#7B0099", icon: "YD", bg: "#F5E6FF", parent: "Yahoo!", sortOrder: 3 },
+  { id: "Google P-MAX", name: "Google P-MAX", color: "#166534", icon: "PM", bg: "#D1FAE5", parent: "Google", sortOrder: 4 },
+  { id: "Meta Ads", name: "Meta 広告", color: "#1E3A8A", icon: "M", bg: "#DBEAFE", parent: "Meta", sortOrder: 5 },
 ];
 
 const PLATFORMS_MAP = new Map(PLATFORM_MASTER.map((p) => [p.id, p]));

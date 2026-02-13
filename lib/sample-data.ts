@@ -5,7 +5,7 @@ import type { DashboardData } from "./types";
 const sampleCampaigns: Campaign[] = [
   {
     id: "google_search-ブランドA-春コレクション2026_検索",
-    platform: "google_search",
+    platform: "Google Search",
     brand: "ブランドA",
     campaign: "春コレクション2026_検索",
     adGroups: [
@@ -53,7 +53,7 @@ const sampleCampaigns: Campaign[] = [
   },
   {
     id: "google_pmax-ブランドA-ブランドA_P-MAX_春夏",
-    platform: "google_pmax",
+    platform: "Google P-MAX",
     brand: "ブランドA",
     campaign: "ブランドA_P-MAX_春夏",
     adGroups: [
@@ -78,7 +78,7 @@ const sampleCampaigns: Campaign[] = [
   },
   {
     id: "yahoo_search-ブランドB-ブランドB_YSA_春夏",
-    platform: "yahoo_search",
+    platform: "Yahoo! Search",
     brand: "ブランドB",
     campaign: "ブランドB_YSA_春夏",
     adGroups: [
@@ -122,7 +122,7 @@ const sampleCampaigns: Campaign[] = [
   },
   {
     id: "yahoo_display-ブランドC-ブランドC_YDA_リターゲティング",
-    platform: "yahoo_display",
+    platform: "Yahoo! Display",
     brand: "ブランドC",
     campaign: "ブランドC_YDA_リターゲティング",
     adGroups: [
@@ -143,7 +143,7 @@ const sampleCampaigns: Campaign[] = [
   },
   {
     id: "meta-ブランドD-ブランドD_Instagram_認知",
-    platform: "meta",
+    platform: "Meta Ads",
     brand: "ブランドD",
     campaign: "ブランドD_Instagram_認知",
     adGroups: [
@@ -187,7 +187,7 @@ const sampleCampaigns: Campaign[] = [
   },
   {
     id: "meta-ブランドE-ブランドE_Facebook_CV獲得",
-    platform: "meta",
+    platform: "Meta Ads",
     brand: "ブランドE",
     campaign: "ブランドE_Facebook_CV獲得",
     adGroups: [

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { DashboardData, Campaign, DisplayAd, SelectedNode } from "@/lib/types";
-import { PLATFORM_MASTER } from "@/lib/platforms";
+import { PLATFORM_MASTER, setDynamicPlatforms } from "@/lib/platforms";
 import Sidebar from "./Sidebar";
 import SearchBar from "./SearchBar";
 import Breadcrumb from "./Breadcrumb";
@@ -25,6 +25,10 @@ function formatFetchedAt(iso: string) {
 
 export default function Dashboard({ data }: Props) {
   const { platforms, campaigns, fetchedAt } = data;
+
+  if (platforms.length > 0) {
+    setDynamicPlatforms(platforms);
+  }
 
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<"card" | "table">("card");

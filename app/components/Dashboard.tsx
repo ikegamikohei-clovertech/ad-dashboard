@@ -60,6 +60,7 @@ export default function Dashboard({ data }: Props) {
       n.add(p);
     }
     setSelectedPlatforms(n);
+    setSelectedNode(null);
   };
 
   const toggleSet = (set: Set<string>, setter: (s: Set<string>) => void, id: string) => {
@@ -166,7 +167,10 @@ export default function Dashboard({ data }: Props) {
           onTogglePlatform={togglePlatform}
           brands={allBrands}
           selectedBrand={selectedBrand}
-          onBrandChange={setSelectedBrand}
+          onBrandChange={(brand) => {
+            setSelectedBrand(brand);
+            setSelectedNode(null);
+          }}
           filteredData={filteredData}
           expandedCampaigns={expandedCampaigns}
           onToggleCampaign={(id) => toggleSet(expandedCampaigns, setExpandedCampaigns, id)}

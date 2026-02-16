@@ -7,6 +7,7 @@ export const PLATFORM_MASTER: PlatformMaster[] = [
   { id: "Yahoo! Display", name: "Yahoo! ディスプレイ", color: "#7B0099", icon: "YD", bg: "#F5E6FF", parent: "Yahoo!", sortOrder: 3 },
   { id: "Google P-MAX", name: "Google P-MAX", color: "#166534", icon: "PM", bg: "#D1FAE5", parent: "Google", sortOrder: 4 },
   { id: "Meta Ads", name: "Meta 広告", color: "#1E3A8A", icon: "M", bg: "#DBEAFE", parent: "Meta", sortOrder: 5 },
+  { id: "Google Demand", name: "Google デマンドジェネレーション", color: "#EA8600", icon: "GD", bg: "#FEF3C7", parent: "Google", sortOrder: 6 },
 ];
 
 const PLATFORMS_MAP = new Map(PLATFORM_MASTER.map((p) => [p.id, p]));
